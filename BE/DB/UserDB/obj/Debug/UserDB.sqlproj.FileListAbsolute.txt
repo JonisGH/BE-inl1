@@ -1,0 +1,10 @@
+C:\Users\Jonis\dev\BE-inl1\BE\DB\UserDB\bin\Debug\UserDB.dacpac
+C:\Users\Jonis\dev\BE-inl1\BE\DB\UserDB\bin\Debug\UserDB.dll
+C:\Users\Jonis\dev\BE-inl1\BE\DB\UserDB\bin\Debug\UserDB.pdb
+C:\Users\Jonis\dev\BE-inl1\BE\DB\UserDB\obj\Debug\UserDB.sqlproj.AssemblyReference.cache
+C:\Users\Jonis\dev\BE-inl1\BE\DB\UserDB\obj\Debug\Model.xml
+C:\Users\Jonis\dev\BE-inl1\BE\DB\UserDB\obj\Debug\refactor.xml
+C:\Users\Jonis\dev\BE-inl1\BE\DB\UserDB\obj\Debug\postdeploy.sql
+C:\Users\Jonis\dev\BE-inl1\BE\DB\UserDB\obj\Debug\predeploy.sql
+C:\Users\Jonis\dev\BE-inl1\BE\DB\UserDB\obj\Debug\UserDB.dll
+C:\Users\Jonis\dev\BE-inl1\BE\DB\UserDB\obj\Debug\UserDB.pdb
