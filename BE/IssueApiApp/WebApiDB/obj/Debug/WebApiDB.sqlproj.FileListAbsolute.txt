@@ -1,0 +1,6 @@
+C:\Users\Jonis\dev\IssueApiApp\WebApiDB\bin\Debug\WebApiDB.dacpac
+C:\Users\Jonis\dev\IssueApiApp\WebApiDB\bin\Debug\WebApiDB.dll
+C:\Users\Jonis\dev\IssueApiApp\WebApiDB\bin\Debug\WebApiDB.pdb
+C:\Users\Jonis\dev\IssueApiApp\WebApiDB\obj\Debug\WebApiDB.sqlproj.AssemblyReference.cache
+C:\Users\Jonis\dev\IssueApiApp\WebApiDB\obj\Debug\WebApiDB.dll
+C:\Users\Jonis\dev\IssueApiApp\WebApiDB\obj\Debug\WebApiDB.pdb

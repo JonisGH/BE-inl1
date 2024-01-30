@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[UserIssues]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Header] NVARCHAR(50) NOT NULL, 
+    [Comment] NVARCHAR(50) NULL, 
+    [Status] BIT NOT NULL DEFAULT 0, 
+    [Email] NVARCHAR(50) NOT NULL, 
+    [Datetime] SMALLDATETIME NOT NULL
+)

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+    <title>API form</title>
+  </head>
+  <body>
+    <form onsubmit="handleSubmit(event)">
+      <div class="container">
+        <div style="border-bottom: 1px solid #000000">
+          <p>Current date and time:</p>
+          <h4 id="datetime"></h4>
+        </div>
+        <div>
+          <label for="header" style="display: block">Topic of issue</label>
+          <input type="text" id="header" />
+        </div>
+        <div>
+          <label for="email" style="display: block">email:</label>
+          <input type="email" id="email" />
+        </div>
+        <div>
+          <label for="comment" style="display: block">message:</label>
+          <textarea
+            id="comment"
+            placeholder="message here ..."
+            rows="4"
+            cols="50"
+          ></textarea>
+        </div>
+        <div style="position: relative">
+          <input type="checkbox" id="checkbox" />
+          <label for="checkbox">In progress</label>
+        </div>
+        <button type="submit">submit</button>
+      </div>
+    </form>
+
+    <div class="fetchSection">
+      <button class="fetchButton" onclick="handleFetch(event)">
+        Show me the issues
+      </button>
+      <div id="resultContainer" class="container"></div>
+    </div>
+
+    <script>
+      const data = {
+        header: "string",
+        comment: "string",
+        status: false,
+        email: "string",
+        datetime: new Date().toISOString(),
+      };
+
+      function updateDateTime() {
+        const now = new Date().toLocaleString();
+        document.querySelector("#datetime").textContent = now;
+      }
+      setInterval(updateDateTime, 1000);
+
+      let checkbox = document.getElementById("checkbox");
+
+      checkbox.addEventListener("change", function (event) {
+        data.status = this.checked;
+      });
+
+      document.querySelector("#email").onchange = function (event) {
+        data.email = event.target.value;
+      };
+
+      document.querySelector("#header").onchange = function (event) {
+        data.header = event.target.value;
+      };
+
+      document.querySelector("#comment").onchange = function (event) {
+        data.message = event.target.value;
+      };
+
+      function handleSubmit(event) {
+        event.preventDefault();
+        fetch("https://localhost:7185/issues", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log("Success:", data); // Handle the success response
+          })
+          .catch((error) => {
+            console.error("Error:", error); // Handle the error response
+          });
+        console.log("Form submitted:", data);
+      }
+
+      function handleFetch(event) {
+        fetch("https://localhost:7185/issues", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then(function (response) {
+            if ((response.status = 200)) {
+              return response.json();
+            } else {
+              console.log("Fetch failed");
+              return Promise.reject(response);
+            }
+          })
+          .then(function (data) {
+            let resultContainer = document.getElementById("resultContainer");
+            resultContainer.innerHTML = "";
+
+            data.forEach((issue) => {
+              let para = document.createElement("p");
+              para.textContent = `Issue: ${issue.header} comment: ${issue.comment} email: ${issue.email} is started: ${issue.status}`;
+              resultContainer.appendChild(para);
+            });
+          })
+          .catch(function (err) {
+            // There was an error
+            console.warn("Something went wrong.", err);
+          });
+      }
+    </script>
+  </body>
+</html>
